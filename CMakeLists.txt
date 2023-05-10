@@ -60,6 +60,12 @@ set(SOURCE_FILES
         src/de/xentec/neuronal/client/input/decoder/MNISTDecoder.h
         src/de/xentec/neuronal/client/input/decoder/MNISTDecoder.cpp
         src/de/xentec/neuronal/client/input/decoder/FileTextDecoder.cpp
+
+        src/de/xentec/neuronal/client/input/ImageInputService.cpp
+        src/de/xentec/neuronal/client/input/ImageInputService.h
+        src/de/xentec/neuronal/client/input/model/image/Image.h
+        src/de/xentec/neuronal/client/input/model/image/Image.cpp
+
         )
 
 

@@ -15,8 +15,8 @@ public:
     void setLabelNumber(double *label, int size);
 
 
-    std::vector<std::vector<double>>loadInput() override;
-    std::vector<std::vector<double>>loadOutput() override;
+    void loadInput(std::vector<std::vector<double>>& input) override;
+    void loadOutput(std::vector<std::vector<double>>& output)  override;
 private:
 
     double *label;

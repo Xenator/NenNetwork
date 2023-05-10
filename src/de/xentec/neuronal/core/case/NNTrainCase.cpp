@@ -20,8 +20,8 @@ void NNTrainCase::run(int batchIndex,int inputIndex) {
 }
 
 void NNTrainCase::start() {
-    inputs = inputService->loadInput();
-    outputs = inputService->loadOutput();
+    inputService->loadInput(inputs);
+    inputService->loadOutput(outputs);
 
     std::vector<std::thread> threads;
     threads.reserve(nnService->getBatchSize());

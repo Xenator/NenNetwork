@@ -10,6 +10,7 @@
 #include "src/de/xentec/neuronal/client/configuration/NNCreateConfiguration.h"
 #include "src/de/xentec/neuronal/core/network/fullconntected/builder/FullConnectedBuilder.h"
 #include "src/de/xentec/neuronal/core/case/NNTrainCase.h"
+#include "src/de/xentec/neuronal/client/input/ImageInputService.h"
 
 int main() {
 
@@ -22,7 +23,11 @@ int main() {
     nInputService->setInputNumber(new double[]{0.2 , 0.1, }, 2);
     nInputService->setLabelNumber(new double[]{0.4,0.9},2);
 
-    InputService*  inputService= fInputService;
+    auto* iInputService = new ImageInputService();
+    iInputService->setInputPath("mnist/train-images.idx3-ubyte");
+    iInputService->setLabelPath("mnist/train-labels.idx1-ubyte");
+
+    InputService*  inputService= iInputService;
 
 ///*******************************      OUTPUT        **************************************************************
     auto*output = new FileOutputService();
@@ -35,7 +40,7 @@ int main() {
     auto*parameter = new NNStaticParameter();
     parameter->setBatchSize(1);
     parameter->setIteration(10000);
-    parameter->setLearningRate(0.5);
+    parameter->setLearningRate(0.03);
     parameter->setLossFunction(new QuadraticFunction());
 
     NNParameterService*  parameterService = parameter;
@@ -47,10 +52,10 @@ int main() {
     config->setActivationFunction(SigmoidFunction::create());
 
     NNCreateConfiguration *configs = new NNCreateConfiguration();
-    configs->setNeurons(new int[]{2,2,2},3);
+    configs->setNeurons(new int[]{28*28,20,10},3);
     configs->setActivationFunction(SigmoidFunction::create());
 
-    NNConfigurationService* configService = config;
+    NNConfigurationService* configService = configs;
 
 ///*******************************    NN  Service        ************************************************************
     auto* builder= new FullConnectedBuilder(parameterService,configService);

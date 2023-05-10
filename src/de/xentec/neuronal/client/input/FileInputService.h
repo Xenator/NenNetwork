@@ -16,8 +16,8 @@ public:
     void setInputPath(const char *filePath);
     void setLabelPath(const char *filePath);
 
-     std::vector<std::vector<double>>loadInput() override;
-     std::vector<std::vector<double>>loadOutput() override;
+    void loadInput(std::vector<std::vector<double>>& input) override;
+    void loadOutput(std::vector<std::vector<double>>& output)  override;
 
 private:
 

@@ -13,22 +13,15 @@ void FileInputService::setLabelPath(const char *filePath) {
     this->labelFilePath = filePath;
 }
 
-std::vector<std::vector<double>> FileInputService::loadInput() {
-
-    std::vector<std::vector<double>> input;
+void FileInputService::loadInput(std::vector<std::vector<double>>& input) {
 
     std::string text= Utils::readFile(inputFilePath);
     Utils::parseMatrices2D(text, input);
 
-    return input;
 }
 
-std::vector<std::vector<double>> FileInputService::loadOutput() {
-
-    std::vector<std::vector<double>> label;
+void FileInputService::loadOutput( std::vector<std::vector<double>> & output) {
 
     std::string text= Utils::readFile(labelFilePath);
-    Utils::parseMatrices2D(text, label);
-
-    return label;
+    Utils::parseMatrices2D(text, output);
 }

@@ -11,8 +11,8 @@
 class InputService {
 
 public:
-    virtual std::vector<std::vector<double>>loadInput() =0;
-    virtual std::vector<std::vector<double>>loadOutput() =0;
+    virtual void loadInput(std::vector<std::vector<double>>& input) = 0;
+    virtual void loadOutput(std::vector<std::vector<double>>& output) = 0 ;
 };
 
 

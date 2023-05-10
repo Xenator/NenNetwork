@@ -15,26 +15,18 @@ void NumberInputService::setLabelNumber(double *label, int size) {
     this->labelSize = size;
 }
 
-std::vector<std::vector<double>> NumberInputService::loadInput() {
+void NumberInputService::loadInput(std::vector<std::vector<double>>& input) {
 
-    std::vector<std::vector<double>> tempInput;
-    tempInput.emplace_back();
-
+    input.emplace_back();
     for(int i = 0; i < inputSize;i++){
-        tempInput[0].push_back(this->input[i]);
+        input[0].push_back(this->input[i]);
     }
-
-    return tempInput;
 }
 
-std::vector<std::vector<double>> NumberInputService::loadOutput() {
+void NumberInputService::loadOutput(std::vector<std::vector<double>>& output) {
 
-    std::vector<std::vector<double>> tempLabel;
-    tempLabel.emplace_back();
-
+    output.emplace_back();
     for(int i = 0; i < labelSize;i++){
-        tempLabel[0].push_back(this->label[i]);
+        output[0].push_back(this->label[i]);
     }
-
-    return tempLabel;
 }
